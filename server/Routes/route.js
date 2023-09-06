@@ -2,6 +2,7 @@ const express = require("express");
 const userdb = require("../Model/userSchema");
 const router = new express.Router();
 const bcrypt = require("bcryptjs");
+const authentication = require("../Middleware/Authentication");
 
 
 
@@ -95,7 +96,28 @@ router.post("/login", async (req, res) => {
 
                                                   //token generate
                                                   const token = await preUser.generateAuthToken();
-                                                  console.log(token);
+                                                  // console.log(token);
+
+
+
+                                                  //generate cookie and store data in cookie with time set of one day
+                                                  res.cookie("auth_token", token, {
+                                                            httpOnly: true,
+                                                            maxAge: 24 * 60 * 60 * 1000
+                                                  });
+
+                                                  const result = {
+                                                            preUser,
+                                                            token
+                                                  };
+
+
+
+                                                  res.status(201).json({
+                                                            status: 204,
+                                                            message: "User Login Successfully done",
+                                                            result
+                                                  })
                                         }
                               }
                     }
@@ -103,6 +125,24 @@ router.post("/login", async (req, res) => {
                     res.status(422).json({
                               error: "Not Logins"
                     })
+          }
+});
+
+
+
+router.get("/validUser", authentication, async (req, res) => {
+          // console.log("done");
+          // console.log(req.getData);
+
+          if (req.getData) {
+                    console.log("user Authorised");
+                    res.status(201).json({
+                              status: 200,
+                              message: "User Authorised",
+                              userData: req.getData
+                    })
+          } else {
+                    console.log("user not authorised");
           }
 })
 
