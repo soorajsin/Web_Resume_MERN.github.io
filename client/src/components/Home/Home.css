@@ -8,8 +8,32 @@
 }
 .contact h3{
           font-size: 30px;
-          color: ;
 }
 .contact span{
           color: red;
 }
+.contact .nametag{
+          margin-top: 30px;
+}
+.img{
+          margin-left: 65%;
+          position: absolute;
+          top: 180px;
+}
+.img .imgOrg img{
+          width: 300px;
+          height: 400px;
+          cursor: pointer;
+}
+.img .edit{
+          margin-left: 90%;
+          cursor: pointer;
+}
+.img .edit i{
+          font-size: 20px;
+          display: none;
+}
+.img:hover .edit i{
+          display: block;
+}
+

@@ -35,13 +35,37 @@ const Home = () => {
   return (
     <>
       <div className="contact">
-        {userdata ? (
+        <div className="nametag">
+          {userdata ? (
+            <h3>
+              Hello, My name is <span>{userdata.userData.name}</span>
+            </h3>
+          ) : (
+            <h3>Loading...</h3>
+          )}
+        </div>
+        <div className="nametag">
           <h3>
-            Hello, My name is <span>{userdata.userData.name}</span>
+            I' m a <span>Full Stack Developer</span>
           </h3>
-        ) : (
-          <h3>Loading...</h3>
-        )}
+        </div>
+        <div className="nametag">
+          <h5>I'm a website design, graphic design, and many more...</h5>
+        </div>
+        <div className="nametag">
+          <button className="btn btn-danger">Download CV</button>
+        </div>
+      </div>
+      <div className="img">
+        <div className="imgOrg">
+          <img
+            src="https://soorajsin.github.io/newcontactresume.github.io/image/simple%20photo%20sooraj.jpg"
+            alt="img"
+          />
+        </div>
+        <div className="edit">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </div>
       </div>
     </>
   );
