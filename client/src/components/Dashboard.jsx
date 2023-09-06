@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const history = useNavigate();
+
   const DashboardDatafetch = async () => {
     const token = await localStorage.getItem("userDataToken");
     //     console.log(token);
@@ -18,8 +21,10 @@ const Dashboard = () => {
 
     if (res.status === 200) {
       console.log(res);
+      //       history("/dash");
     } else {
       console.log("User Not Authorised");
+      history("*");
     }
   };
 
@@ -27,7 +32,15 @@ const Dashboard = () => {
     DashboardDatafetch();
   });
 
-  return <div>Dashboard</div>;
+  return (
+    <>
+      <div className="dash">
+        <h1>Welcome to Dashboard</h1>
+        <br />
+        User id:{}
+      </div>
+    </>
+  );
 };
 
 export default Dashboard;

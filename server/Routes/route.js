@@ -135,7 +135,7 @@ router.get("/validUser", authentication, async (req, res) => {
           // console.log(req.getData);
 
           if (req.getData) {
-                    console.log("user Authorised");
+                    // console.log("user Authorised");
                     res.status(201).json({
                               status: 200,
                               message: "User Authorised",
