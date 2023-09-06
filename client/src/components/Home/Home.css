@@ -26,14 +26,14 @@
           cursor: pointer;
 }
 .img .edit{
-          margin-left: 90%;
           cursor: pointer;
 }
-.img .edit i{
+.img .edit{
           font-size: 20px;
+          color: red;
           display: none;
 }
-.img:hover .edit i{
+.img:hover .edit{
           display: block;
 }
 

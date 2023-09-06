@@ -1,0 +1,51 @@
+*{
+          margin: 0;
+          padding: 0;
+}
+.contact{
+          margin-top: 100px;
+}
+.contact .tag{
+          margin-top: 30px;
+}
+.contact .tag p{
+          font-size: 15px;
+          flex-wrap: wrap;
+          margin-right: 20px;
+}
+.contact .tag .personalInfo{
+          margin-bottom: 30px;
+          cursor: pointer;
+}
+.contact .tag .personalInfo p{
+          font-size: 20px;
+          font-weight: 1000px;
+          cursor: pointer;
+}
+.contact .tag .personalInfo .line{
+          height: 1px;
+          width: 250px;
+          margin-top: 1px;
+          background-color: black;
+}
+.contact .skill{
+          margin-left: 60%;
+          margin-top: 30px;
+}
+.contact .skill .skillClass{
+          width: 300px;
+          height: 100px;
+}
+.contact .skill .skillClass input{
+          width: 200px;
+          height: 34px;
+          margin-bottom: 20px;
+          padding-left: 10px;
+          border-radius: 5px;
+          font-size: 20px;
+}
+.contact .skill .skillClass  .btn{
+          margin-bottom: 20px;
+          width: 200px;
+          font-size: 20px;
+}

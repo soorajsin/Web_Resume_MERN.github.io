@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Home.css";
 import { ContextNavigate } from "../ContextProvider/Context";
 
 const Home = () => {
   const { userdata, setUserData } = useContext(ContextNavigate);
   // console.log(userdata);
+  const [profileImage, setProfileImage] = useState(null);
 
   const DashboardDatafetch = async () => {
     const token = await localStorage.getItem("userDataToken");
@@ -31,6 +32,24 @@ const Home = () => {
   useEffect(() => {
     DashboardDatafetch();
   });
+
+
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        setProfileImage(e.target.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  };
+
+
 
   return (
     <>
@@ -59,12 +78,12 @@ const Home = () => {
       <div className="img">
         <div className="imgOrg">
           <img
-            src="https://soorajsin.github.io/newcontactresume.github.io/image/simple%20photo%20sooraj.jpg"
-            alt="img"
+            src={profileImage || "https://soorajsin.github.io/newcontactresume.github.io/image/simple%20photo%20sooraj.jpg"}
+            alt="Profile"
           />
         </div>
         <div className="edit">
-          <i class="fa-solid fa-pen-to-square"></i>
+          <input type="file" accept="image/*" onChange={handleImageChange} />
         </div>
       </div>
     </>
