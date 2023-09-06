@@ -1,7 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { ContextNavigate } from "./ContextProvider/Context";
+// import { ContextNavigate } from "./ContextProvider/Context";
 
 const Dashboard = () => {
+  //add context
+  const { userdata, setUserData } = useContext(ContextNavigate);
+  //   console.log(userdata);
+
   const history = useNavigate();
 
   const DashboardDatafetch = async () => {
@@ -20,7 +26,8 @@ const Dashboard = () => {
     //     console.log(res);
 
     if (res.status === 200) {
-      console.log(res);
+      //   console.log(res);
+      setUserData(res);
       //       history("/dash");
     } else {
       console.log("User Not Authorised");
@@ -37,7 +44,13 @@ const Dashboard = () => {
       <div className="dash">
         <h1>Welcome to Dashboard</h1>
         <br />
-        User id:{}
+        {userdata ? (
+          <div className="content" style={{ color: "red" }}>
+            <h1>User id : {userdata.userData.email}</h1>
+          </div>
+        ) : (
+          <h1>Loading...</h1>
+        )}
       </div>
     </>
   );

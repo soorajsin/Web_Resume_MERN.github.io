@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { createContext, useState } from "react";
 
-const Context = () => {
+export const ContextNavigate = createContext({
+  userdata: "",
+  setUserData: () => {},
+});
+
+const Context = ({ children }) => {
+  const [userdata, setUserData] = useState("");
+
   return (
     <>
-         
+      <ContextNavigate.Provider value={{ userdata, setUserData }}>
+        {children}
+      </ContextNavigate.Provider>
     </>
-  )
-}
+  );
+};
 
-export default Context
+export default Context;

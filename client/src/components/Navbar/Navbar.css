@@ -1,0 +1,22 @@
+* {
+          margin: 0;
+          padding: 0;
+}
+
+.button {
+          margin-left: 40px;
+}
+
+.button .btn {
+          font-size: 20px;
+          cursor: pointer;
+          transition: transform 0.3s ease-in-out;
+}
+.button .btn .btn-navlink{
+          color: #fff;
+          text-decoration: none;
+}
+
+.button .btn:hover {
+          transform: translateY(-5px);
+}
