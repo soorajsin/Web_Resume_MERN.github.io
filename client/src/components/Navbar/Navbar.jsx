@@ -43,6 +43,13 @@ const Navbar = () => {
               </NavLink>
             </button>
           </div>
+          <div className="button">
+            <button className="btn btn-primary">
+              <NavLink className={"btn-navlink"} to={"/dash"}>
+                Dashboards
+              </NavLink>
+            </button>
+          </div>
         </Toolbar>
       </AppBar>
     </>

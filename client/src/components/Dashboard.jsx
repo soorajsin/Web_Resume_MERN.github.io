@@ -28,10 +28,10 @@ const Dashboard = () => {
     if (res.status === 200) {
       //   console.log(res);
       setUserData(res);
-      //       history("/dash");
+            // history("/dash");
     } else {
       console.log("User Not Authorised");
-      history("*");
+      history("/");
     }
   };
 
@@ -41,12 +41,12 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="dash">
+      <div className="dash text-center"  style={{marginTop:"120px"}}>
         <h1>Welcome to Dashboard</h1>
         <br />
         {userdata ? (
           <div className="content" style={{ color: "red" }}>
-            <h1>User id : {userdata.userData.email}</h1>
+            <h1>User Email id : {userdata.userData.email}</h1>
           </div>
         ) : (
           <h1>Loading...</h1>

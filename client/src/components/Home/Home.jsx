@@ -1,8 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Home.css";
 import { ContextNavigate } from "../ContextProvider/Context";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+
+  const history=useNavigate();
+
+
+
   const { userdata, setUserData } = useContext(ContextNavigate);
   // console.log(userdata);
   const [profileImage, setProfileImage] = useState(null);
@@ -26,6 +32,8 @@ const Home = () => {
       //   console.log(res);
       setUserData(res);
       //       history("/dash");
+    }else{
+      history("/");
     }
   };
 

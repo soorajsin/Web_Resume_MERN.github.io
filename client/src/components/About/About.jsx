@@ -1,8 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import "./About.css";
 import { ContextNavigate } from "../ContextProvider/Context";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const history = useNavigate();
+
   const { userdata, setUserData } = useContext(ContextNavigate);
 
   const DashboardDatafetch = async () => {
@@ -24,37 +27,14 @@ const About = () => {
       //   console.log(res);
       setUserData(res);
       //       history("/dash");
+    } else {
+      history("/");
     }
   };
 
   useEffect(() => {
     DashboardDatafetch();
   });
-
-  //skill part
-  // Skill part
-  const [skills, setSkills] = useState([""]);
-
-  // Function to add a new input field for skills
-  const addSkillField = () => {
-    setSkills([...skills, ""]);
-  };
-
-  // Function to handle changes in skill values
-  const handleSkillChange = (index, value) => {
-    const updatedSkills = [...skills];
-    updatedSkills[index] = value;
-    setSkills(updatedSkills);
-  };
-  // console.log(skills);
-
-
-  const saveSkill=(e)=>{
-    e.preventDefault();
-    console.log("save");
-
-
-  }
 
   return (
     <>
@@ -94,18 +74,10 @@ const About = () => {
         </div>
         <div className="skill">
           <div className="skillClass">
-            {skills.map((skill, index) => (
-              <div key={index}>
-                <input
-                  type="text"
-                  placeholder="Enter Skill here..."
-                  value={skill}
-                  onChange={(e) => handleSkillChange(index, e.target.value)}
-                />
-              </div>
-            ))}
-            <button onClick={addSkillField} className="btn btn-primary">Add Skill</button><br/>
-            <button onClick={saveSkill}  className="btn btn-success" >Save</button>
+            <h1>
+              <span>Skills</span>
+            </h1><br/>
+            <button className="btn btn-primary">Enter Skill here...</button>
           </div>
         </div>
       </div>
