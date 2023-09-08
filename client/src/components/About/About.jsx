@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import "./About.css";
 import { ContextNavigate } from "../ContextProvider/Context";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const About = () => {
   const history = useNavigate();
@@ -43,7 +43,7 @@ const About = () => {
           {userdata ? (
             <h3>
               Hello, My name is <span>{userdata.userData.name}</span> and{" "}
-              <span>Full Developer</span>
+              <span>Full Stack Developer</span>
             </h3>
           ) : (
             <h3>Loading...</h3>
@@ -76,8 +76,11 @@ const About = () => {
           <div className="skillClass">
             <h1>
               <span>Skills</span>
-            </h1><br/>
-            <button className="btn btn-primary">Enter Skill here...</button>
+            </h1>
+            <br />
+            <NavLink to={"/skill"}>
+              <button className="btn btn-primary">Add Skill here...</button>
+            </NavLink>
           </div>
         </div>
       </div>

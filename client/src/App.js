@@ -10,6 +10,7 @@ import About from "./components/About/About";
 import Service from "./components/Service/Service";
 import Portfolio from "./components/Portfolio/Portfolio";
 import Contact from "./components/Contact/Contact";
+import SkillForm from "./components/About/SkillForm";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/service" element={<Service />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/skill" element={<SkillForm/>}/>
         </Routes>
       </BrowserRouter>
     </>

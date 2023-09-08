@@ -144,7 +144,39 @@ router.get("/validUser", authentication, async (req, res) => {
           } else {
                     console.log("user not authorised");
           }
+});
+
+
+
+
+
+//add skill here...
+router.post("/skillAdd", async (req, res) => {
+          // console.log(req.body);
+
+          try {
+                    const {
+                              skills
+                    } = req.body;
+                    //          console.log(req.body);
+
+                    const userCheck = await userdb.findOne(email);
+
+                    if (!userCheck) {
+                              res.status(422).json({
+                                        error: "User not found"
+                              })
+                    } else {
+                              console.log("done");
+                    }
+          } catch (error) {
+                    res.status(422).json({
+                              error: "Not Skill add"
+                    });
+          }
 })
+
+
 
 
 module.exports = router;
