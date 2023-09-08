@@ -152,43 +152,10 @@ router.get("/validUser", authentication, async (req, res) => {
 
 //add skill here...
 router.post("/skillAdd", authentication, async (req, res) => {
-          try {
-                    const {
-                              skills
-                    } = req.body;
-                    const userId = req.getData._id;
-
-                    if (!skills || !Array.isArray(skills)) {
-                              return res.status(400).json({
-                                        error: "Invalid skills data",
-                              });
-                    }
-
-                    const user = await userdb.findById(userId);
-
-                    if (!user) {
-                              return res.status(404).json({
-                                        error: "User not found",
-                              });
-                    }
-
-                    // Assuming you have a field in your User model to store skills, you can update it like this
-                    user.skills = skills;
-
-                    const savedUser = await user.save();
-
-                    // Respond with a success message and the updated user data
-                    res.status(200).json({
-                              status: 200,
-                              message: "Skills added successfully",
-                              user: savedUser,
-                    });
-          } catch (error) {
-                    res.status(500).json({
-                              error: "Failed to add skills",
-                    });
-          }
+         console.log("done");
+                    
 });
+
 
 
 

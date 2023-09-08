@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const userdb = require("../Model/userSchema");
 const keysecret = "jkuhgfdsaewdxcfvghmnjkiuytmnbvgh";
 
-const authentication = async(req, res, next) => {
+const authentication = async (req, res, next) => {
           try {
                     const token = req.headers.authorization;
                     // console.log(token);
@@ -15,12 +15,18 @@ const authentication = async(req, res, next) => {
                               // Verify the token and handle errors
                               const verifyToken = jwt.verify(token, keysecret);
 
-                              const getData=await userdb.findOne({_id:verifyToken._id});
+                              const getData = await userdb.findOne({
+                                        _id: verifyToken._id
+                              });
 
-                              if(!getData){
-                                        return  res.status(503).send('User not found');
-                              }else{
-                                        req.getData=getData;
+                              if (!getData) {
+                                        return res.status(503).send('User not found');
+                              } else {
+                                        // req.getData=getData;
+
+                                        req.token = token
+                                        req.rootUser = rootUser
+                                        req.userId = rootUser._id
                                         next();
                               }
                     }

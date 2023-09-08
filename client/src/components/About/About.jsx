@@ -72,7 +72,7 @@ const About = () => {
             <div className="line"></div>
           </div>
         </div>
-        <div className="skill">
+        <div className="skilled">
           <div className="skillClass">
             <h1>
               <span>Skills</span>
