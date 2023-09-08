@@ -160,17 +160,13 @@ router.post("/skillAdd", async (req, res) => {
                     } = req.body;
                     //          console.log(req.body);
 
-                    const userCheck = await userdb.findOne(email);
+                    const userCheck = await userdb.findOne({
+                              email: email
+                    });
 
-                    if (!userCheck) {
-                              res.status(422).json({
-                                        error: "User not found"
-                              })
-                    } else {
-                              console.log("done");
-                    }
+                    console.log(checkUser);
           } catch (error) {
-                    res.status(422).json({
+                    res.status(500).json({
                               error: "Not Skill add"
                     });
           }
