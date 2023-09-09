@@ -151,10 +151,10 @@ router.get("/validUser", authentication, async (req, res) => {
 
 
 //add skill here...
-router.post("/skillAdd", authentication, async (req, res) => {
-         console.log("done");
-                    
-});
+// router.post("/skillAdd", authentication, async (req, res) => {
+//           console.log("done");
+
+// });
 
 
 
